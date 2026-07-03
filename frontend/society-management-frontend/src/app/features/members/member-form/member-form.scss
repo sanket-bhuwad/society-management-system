@@ -1,0 +1,24 @@
+h2{
+    margin-bottom:20px;
+}
+
+form{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+mat-form-field{
+    width:100%;
+}
+
+.button-group{
+    grid-column:span 2;
+    display:flex;
+    gap:15px;
+    margin-top:10px;
+}
+
+button{
+    min-width:140px;
+}

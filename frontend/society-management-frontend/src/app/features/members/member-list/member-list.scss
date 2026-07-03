@@ -1,0 +1,23 @@
+.member-container {
+  padding: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-row:hover {
+  background: #f5f5f5;
+}

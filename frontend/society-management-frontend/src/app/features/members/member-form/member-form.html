@@ -1,0 +1,59 @@
+<h2>Add Member</h2>
+
+<form [formGroup]="memberForm" (ngSubmit)="saveMember()">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Full Name</mat-label>
+    <input matInput formControlName="fullName">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Mobile</mat-label>
+    <input matInput formControlName="mobile">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Wing</mat-label>
+    <input matInput formControlName="wing">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Flat Number</mat-label>
+    <input matInput formControlName="flatNumber">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Role</mat-label>
+
+    <mat-select formControlName="role">
+      <mat-option value="Owner">Owner</mat-option>
+      <mat-option value="Tenant">Tenant</mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Status</mat-label>
+
+    <mat-select formControlName="status">
+      <mat-option value="Active">Active</mat-option>
+      <mat-option value="Inactive">Inactive</mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit">
+
+    Save Member
+
+  </button>
+
+</form>

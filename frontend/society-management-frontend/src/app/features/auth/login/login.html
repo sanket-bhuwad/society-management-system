@@ -1,0 +1,72 @@
+<div class="login-container">
+  <mat-card class="login-card">
+
+    <div class="logo-section">
+      <h1>🏢 SocietyHub</h1>
+      <p>Society Management System</p>
+    </div>
+
+    <h2>Welcome Back 👋</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+
+        <input
+          matInput
+          type="email"
+          formControlName="email">
+
+        <mat-icon matSuffix>mail</mat-icon>
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label>Password</mat-label>
+
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password">
+
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="hidePassword=!hidePassword">
+
+          <mat-icon>
+            {{hidePassword ? 'visibility_off':'visibility'}}
+          </mat-icon>
+
+        </button>
+
+      </mat-form-field>
+
+      <div class="options">
+
+        <mat-checkbox>
+          Remember Me
+        </mat-checkbox>
+
+        <a routerLink="/forgot-password">
+          Forgot Password?
+        </a>
+
+      </div>
+
+      <button
+        mat-raised-button
+        color="primary"
+        class="login-btn">
+
+        Login
+
+      </button>
+
+    </form>
+
+  </mat-card>
+</div>

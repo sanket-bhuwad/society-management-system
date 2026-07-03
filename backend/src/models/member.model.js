@@ -1,0 +1,46 @@
+const db = require('../config/db');
+
+const getAllMembers = (callback) => {
+  const sql = `
+    SELECT
+      id,
+      full_name AS fullName,
+      email,
+      mobile,
+      wing,
+      flat_number AS flatNumber,
+      role,
+      status
+    FROM members
+    ORDER BY id DESC
+  `;
+
+  db.query(sql, callback);
+};
+
+const createMember = (member, callback) => {
+  const sql = `
+    INSERT INTO members
+    (full_name, email, mobile, wing, flat_number, role, status)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  db.query(
+    sql,
+    [
+      member.fullName,
+      member.email,
+      member.mobile,
+      member.wing,
+      member.flatNumber,
+      member.role,
+      member.status,
+    ],
+    callback
+  );
+};
+
+module.exports = {
+  getAllMembers,
+  createMember,
+};

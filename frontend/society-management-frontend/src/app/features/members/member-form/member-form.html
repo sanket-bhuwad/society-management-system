@@ -1,4 +1,4 @@
-<h2>Add Member</h2>
+<h2>{{ data ? 'Edit Member' : 'Add Member' }}</h2>
 
 <form [formGroup]="memberForm" (ngSubmit)="saveMember()">
 
@@ -29,31 +29,41 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Role</mat-label>
-
     <mat-select formControlName="role">
       <mat-option value="Owner">Owner</mat-option>
       <mat-option value="Tenant">Tenant</mat-option>
     </mat-select>
-
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Status</mat-label>
-
     <mat-select formControlName="status">
       <mat-option value="Active">Active</mat-option>
       <mat-option value="Inactive">Inactive</mat-option>
     </mat-select>
-
   </mat-form-field>
 
-  <button
-    mat-raised-button
-    color="primary"
-    type="submit">
+  <div class="button-group">
 
-    Save Member
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit">
 
-  </button>
+      {{ data ? 'Update Member' : 'Save Member' }}
+
+    </button>
+
+    <button
+      mat-raised-button
+      color="warn"
+      type="button"
+      (click)="closeDialog()">
+
+      Cancel
+
+    </button>
+
+  </div>
 
 </form>

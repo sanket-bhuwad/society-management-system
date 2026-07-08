@@ -3,8 +3,8 @@ export interface Member {
   fullName: string;
   email: string;
   mobile: string;
-  flatNumber: string;
   wing: string;
+  flatNumber: string;
   role: string;
   status: string;
 }

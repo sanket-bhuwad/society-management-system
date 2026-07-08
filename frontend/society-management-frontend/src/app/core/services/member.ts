@@ -32,4 +32,6 @@ export class MemberService {
   deleteMember(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+
+  
 }

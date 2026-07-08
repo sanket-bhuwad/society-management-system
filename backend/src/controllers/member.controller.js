@@ -33,3 +33,51 @@ exports.createMember = (req, res) => {
     });
   });
 };
+
+exports.getMemberById = (req, res) => {
+
+  const id = req.params.id;
+
+  Member.getMemberById(id, (err, results) => {
+
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: err.message
+      });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Member not found'
+      });
+    }
+
+    res.json(results[0]);
+
+  });
+
+};
+
+exports.updateMember = (req, res) => {
+
+  const id = req.params.id;
+
+  Member.updateMember(id, req.body, (err, result) => {
+
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: err.message
+      });
+    }
+
+    res.json({
+      success: true,
+      message: 'Member updated successfully'
+    });
+
+  });
+
+};

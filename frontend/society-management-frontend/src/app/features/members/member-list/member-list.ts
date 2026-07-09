@@ -26,10 +26,10 @@ import { MemberForm } from '../member-form/member-form';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   templateUrl: './member-list.html',
-  styleUrl: './member-list.scss'
+  styleUrl: './member-list.scss',
 })
 export class MemberList implements OnInit, AfterViewInit {
 
@@ -76,6 +76,7 @@ export class MemberList implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  // Add Member
   openDialog(): void {
 
     const dialogRef = this.dialog.open(MemberForm, {
@@ -83,7 +84,26 @@ export class MemberList implements OnInit, AfterViewInit {
       disableClose: true
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result) {
+        this.loadMembers();
+      }
+
+    });
+
+  }
+
+  // Edit Member
+  editMember(member: Member): void {
+
+    const dialogRef = this.dialog.open(MemberForm, {
+      width: '700px',
+      disableClose: true,
+      data: member
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
 
       if (result) {
         this.loadMembers();

@@ -4,16 +4,13 @@
 
     <h2>Members</h2>
 
-<button
-    mat-raised-button
-    color="primary"
-    (click)="openDialog()">
+    <button mat-raised-button color="primary" (click)="openDialog()">
 
-    <mat-icon>add</mat-icon>
+      <mat-icon>add</mat-icon>
 
-    Add Member
+      Add Member
 
-</button>
+    </button>
 
   </div>
 
@@ -21,11 +18,7 @@
 
     <mat-label>Search Member</mat-label>
 
-    <input
-      matInput
-      (keyup)="applyFilter($event)"
-      placeholder="Search..."
-    >
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search...">
 
   </mat-form-field>
 
@@ -109,7 +102,7 @@
 
       <td mat-cell *matCellDef="let member">
 
-        <button mat-icon-button color="primary">
+        <button mat-icon-button color="primary" (click)="editMember(member)">
 
           <mat-icon>edit</mat-icon>
 
@@ -131,9 +124,7 @@
 
   </table>
 
-  <mat-paginator
-    [pageSize]="5"
-    [pageSizeOptions]="[5,10,20]">
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5,10,20]">
   </mat-paginator>
 
 </div>

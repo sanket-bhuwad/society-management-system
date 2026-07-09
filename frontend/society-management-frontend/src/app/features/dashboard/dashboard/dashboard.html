@@ -1,66 +1,75 @@
 <app-sidebar></app-sidebar>
 
-<app-navbar></app-navbar>
+<div class="main-content">
 
-<div class="content">
+  <app-navbar></app-navbar>
 
-  <h1>Welcome to SocietyHub 🎉</h1>
+  <div class="content">
 
-  <div class="cards">
+    <div class="page-header">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Welcome back, Admin 👋</p>
+      </div>
+    </div>
 
-    <app-dashboard-card
-      title="Total Members"
-      value="120"
-      icon="👥">
-    </app-dashboard-card>
+    <div class="cards">
 
-    <app-dashboard-card
-      title="Pending Maintenance"
-      value="₹52,000"
-      icon="💰">
-    </app-dashboard-card>
+      <app-dashboard-card
+        title="Total Members"
+        value="120"
+        icon="👥">
+      </app-dashboard-card>
 
-    <app-dashboard-card
-      title="Open Complaints"
-      value="8"
-      icon="📝">
-    </app-dashboard-card>
+      <app-dashboard-card
+        title="Pending Maintenance"
+        value="₹52,000"
+        icon="💰">
+      </app-dashboard-card>
 
-    <app-dashboard-card
-      title="Active Notices"
-      value="4"
-      icon="📢">
-    </app-dashboard-card>
+      <app-dashboard-card
+        title="Open Complaints"
+        value="8"
+        icon="📝">
+      </app-dashboard-card>
+
+      <app-dashboard-card
+        title="Active Notices"
+        value="4"
+        icon="📢">
+      </app-dashboard-card>
+
+    </div>
+
+    <div class="dashboard-grid">
+
+      <div class="activities">
+
+        <h2>Recent Activities</h2>
+
+        <ul>
+          <li>✅ Rahul Sharma paid maintenance.</li>
+          <li>👤 Priya Patel added as new member.</li>
+          <li>📝 Water leakage complaint resolved.</li>
+          <li>📢 Maintenance notice published.</li>
+          <li>🏠 Flat B-302 occupied.</li>
+        </ul>
+
+      </div>
+
+      <div class="quick-actions">
+
+        <h2>Quick Actions</h2>
+
+        <button>Add Member</button>
+        <button>Collect Maintenance</button>
+        <button>Create Notice</button>
+        <button>View Complaints</button>
+
+      </div>
+
+    </div>
 
   </div>
-
-  <div class="dashboard-grid">
-
-  <div class="activities">
-
-    <h2>Recent Activities</h2>
-
-    <ul>
-      <li>✅ Rahul Sharma paid maintenance.</li>
-      <li>👤 New member added - Priya Patel.</li>
-      <li>📝 Complaint resolved - Water Leakage.</li>
-      <li>📢 New notice published.</li>
-      <li>🏠 Flat B-302 occupied.</li>
-    </ul>
-
-  </div>
-
-  <div class="quick-actions">
-
-    <h2>Quick Actions</h2>
-
-    <button>Add Member</button>
-    <button>Collect Maintenance</button>
-    <button>Create Notice</button>
-    <button>View Complaints</button>
-
-  </div>
-
-</div>
 
 </div>

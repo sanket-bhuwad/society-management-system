@@ -32,7 +32,6 @@ import { MemberForm } from '../member-form/member-form';
   styleUrl: './member-list.scss',
 })
 export class MemberList implements OnInit, AfterViewInit {
-
   displayedColumns: string[] = [
     'fullName',
     'email',
@@ -40,7 +39,7 @@ export class MemberList implements OnInit, AfterViewInit {
     'wing',
     'flatNumber',
     'status',
-    'actions'
+    'actions',
   ];
 
   dataSource = new MatTableDataSource<Member>();
@@ -49,7 +48,7 @@ export class MemberList implements OnInit, AfterViewInit {
 
   constructor(
     private memberService: MemberService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -67,7 +66,7 @@ export class MemberList implements OnInit, AfterViewInit {
       },
       error: (error) => {
         console.error('Failed to load members', error);
-      }
+      },
     });
   }
 
@@ -78,39 +77,51 @@ export class MemberList implements OnInit, AfterViewInit {
 
   // Add Member
   openDialog(): void {
-
     const dialogRef = this.dialog.open(MemberForm, {
       width: '700px',
-      disableClose: true
+      disableClose: true,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.loadMembers();
       }
-
     });
-
   }
 
   // Edit Member
   editMember(member: Member): void {
-
     const dialogRef = this.dialog.open(MemberForm, {
       width: '700px',
       disableClose: true,
-      data: member
+      data: member,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.loadMembers();
       }
-
     });
-
   }
 
+  // delete Member
+  deleteMember(member: Member): void {
+    const confirmDelete = confirm(`Are you sure you want to delete ${member.fullName}?`);
+
+    if (!confirmDelete) {
+      return;
+    }
+
+    this.memberService.deleteMember(member.id!).subscribe({
+      next: () => {
+        alert('Member Deleted Successfully ✅');
+
+        this.loadMembers();
+      },
+
+      error: (err) => {
+        alert(err.error?.message || 'Failed to Delete Member');
+      },
+    });
+  }
 }

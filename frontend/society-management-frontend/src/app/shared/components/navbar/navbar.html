@@ -1,53 +1,41 @@
 <mat-toolbar color="primary">
 
-    <span class="title">
+  <span class="title">
+    Dashboard
+  </span>
 
-        Dashboard
+  <span class="spacer"></span>
 
-    </span>
+  <button mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+  </button>
 
-    <span class="spacer"></span>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+    Admin
+  </button>
 
-    <button mat-icon-button>
+  <mat-menu #menu="matMenu">
 
-        <mat-icon>notifications</mat-icon>
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </button>
+
+    <button mat-menu-item>
+      <mat-icon>lock</mat-icon>
+      <span>Change Password</span>
+    </button>
+
+    <button
+      mat-menu-item
+      (click)="logout()">
+
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
 
     </button>
 
-    <button mat-button [matMenuTriggerFor]="menu">
-
-        <mat-icon>account_circle</mat-icon>
-
-        Admin
-
-    </button>
-
-    <mat-menu #menu="matMenu">
-
-        <button mat-menu-item>
-
-            <mat-icon>person</mat-icon>
-
-            Profile
-
-        </button>
-
-        <button mat-menu-item>
-
-            <mat-icon>lock</mat-icon>
-
-            Change Password
-
-        </button>
-
-        <button mat-menu-item>
-
-            <mat-icon>logout</mat-icon>
-
-            Logout
-
-        </button>
-
-    </mat-menu>
+  </mat-menu>
 
 </mat-toolbar>

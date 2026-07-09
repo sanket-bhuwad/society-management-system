@@ -81,3 +81,25 @@ exports.updateMember = (req, res) => {
   });
 
 };
+
+exports.deleteMember = (req, res) => {
+
+  const id = req.params.id;
+
+  Member.deleteMember(id, (err, result) => {
+
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: err.message,
+      });
+    }
+
+    return res.json({
+      success: true,
+      message: 'Member Deleted Successfully',
+    });
+
+  });
+
+};

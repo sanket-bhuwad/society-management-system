@@ -88,9 +88,21 @@ const updateMember = (id, member, callback) => {
   );
 };
 
+const deleteMember = (id, callback) => {
+
+  const sql = `
+    DELETE FROM members
+    WHERE id = ?
+  `;
+
+  db.query(sql, [id], callback);
+
+};
+
 module.exports = {
   getAllMembers,
   createMember,
   getMemberById,
-   updateMember,
+  updateMember,
+  deleteMember
 };
